@@ -1,0 +1,24 @@
+{
+  "name": "test-app",
+  "version": "1.0.0",
+  "description": "test using js",
+  "main": "index.js",
+  "dependencies": {
+    "casual": "^1.6.2",
+    "nodemon": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yotaaro/js-test.git"
+  },
+  "author": "yudi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yotaaro/js-test/issues"
+  },
+  "homepage": "https://github.com/yotaaro/js-test#readme"
+}
