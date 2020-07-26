@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+  <%  questions.forEach((q)=>{ %>
+
+    <% if(q['user'].toLowerCase() == 'udin'){ %>
+        <h1>
+            <%= q['title']%>
+        </h1>
+        <p>
+            <%=  q['user']%>
+        </p>
+    <% } else if(q['user'].toLowerCase() =='nowaru'){%>
+        <h1>
+            nowaru punyani
+        </h1>
+        <h1>
+            <%= q['title']%>
+        </h1>
+        <p>
+            <%=  q['user']%>
+        </p>
+
+        
+        <% }});%>
+
+</body>
+</html>
+
