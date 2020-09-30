@@ -1,0 +1,41 @@
+<%- include('partials/header')-%>
+
+<div class="container mt-5 w-50">
+    <h2 class="mb-4"> Search it!</h2>
+    <form action="/employee/search" method="GET">
+        <input type="text" name="name" class="form-control" placeholder="Nama yang ingin dicari">
+
+        <button type="submit" class="btn btn-info btn-block mt-3"> Search!</button>
+    </form>
+
+
+    <h4 class="text-danger my-4"> Results:</h4>
+    <table class="table table-bordered" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>salary</th>
+                <th>position</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                
+                <%     if(employee){ %>
+                <td><%= employee.name %></td>
+                <td><%= employee.salary %></td>
+                <td><%= employee.position %></td>
+               <% } else if(employee != "") { %>
+                <td colspan="3" class="text-center">
+                    no data
+                
+                </td>
+                <% }else{ %>
+                    <td colspan="3" class="text-center">silahkan cari</td>
+              <% } %>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<%- include('partials/footer')-%>
