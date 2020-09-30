@@ -1,32 +1,32 @@
-const express = require('express');
+const express = require('express'); //ambil express
 const bodyParser = require('body-parser');
-const path = require('path');
-const app = express();
-const request = require('request');
+const path = require('path'); // ambil path directory
+const app = express(); //panggil express
+const request = require('request'); // request
 
-app.use(express.static('public'));
+app.use(express.static('public')); // public tu tempat yang digunakan contoh kayak css js(front) dsb 
 app.use(bodyParser.urlencoded({extended:true}))
-app.set('view engine','ejs')
-app.set('views',path.join(__dirname,'views'))
+app.set('view engine','ejs') // makai view engine ejs disini
+app.set('views',path.join(__dirname,'views')) //disini dipakai dir tadi, terus diliat bahwa file view nya ada di volder views jadi kayak e:/root/views
 
-let key = "4870feef16cd256cdb9275c03b7387d0";
-
-app.get('/',(req,res)=>{
-    let query = req.query.search;
-    request('api.themoviedb.org/3/search/movie?api_key=${key}&query=${query}',(error,res,body) =>{
-        if(error)
+app.get('/results',(req,res)=>{
+    let key = "4870feef16cd256cdb9275c03b7387d0";
+    let query = req.query.search; // disini ambil query dari search yang dibuat sebelumnya (input text nya)
+    request('https://api.themoviedb.org/3/search/movie?api_key='+key+'&query='+query,(error,response,body) =>{ // dari api ini diambil datanya, dari body yang hasilnya string (Perlu diubah ke json)
+        if(error) // nah dicek sini kalau ada errornya di consolelog kan
         {
             console.log(error)
         }
-        let data = JSON.parse(body);
-        res.render('search',{data:data})
+        let data = JSON.parse(body); //ngubah yang hasil sebelumnya string jadi json
+        // console.log(body)
+        res.render('movie',{data:data,query:query}) //dipass disini query sebelumnya sama data yang diambil dari api yang udah di parse ke json
     })
     
 
 })
 
-app.get('/results/',(req,res)=>{
-res.render('movie')
+app.get('/',(req,res)=>{
+res.render('search')
 })
 
 app.listen(3000,()=>{

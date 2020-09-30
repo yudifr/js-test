@@ -1,0 +1,63 @@
+/node_modules
+/express/callback-test/node_modules
+/express/directories/node_modules
+/express/employee/node_modules
+/express/movie_app/node_modules
+/express/one/node_modules
+/express/post-request/node_modules
+/express/route param/node_modules
+
+/public/hot
+/public/storage
+/public/images/qrcode
+/storage/*.key
+/vendor
+.env
+.env.backup
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+
+# phpstorm project files
+.idea
+
+# netbeans project files
+nbproject
+
+# zend studio for eclipse project files
+.buildpath
+.project
+.settings
+
+# windows thumbnail cache
+Thumbs.db
+
+# composer itself is not needed
+composer.phar
+composer.lock
+
+#NPM
+package-lock.json
+
+# Mac DS_Store Files
+.DS_Store
+
+# phpunit itself is not needed
+phpunit.phar
+# local phpunit config
+/phpunit.xml
+
+tests/_output/*
+tests/_support/_generated
+
+#vagrant folder
+/.vagrant
+
+#logs
+*.log
+
+#config
+/config/db.php
+/config/home_url.php

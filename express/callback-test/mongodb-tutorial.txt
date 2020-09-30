@@ -1,0 +1,77 @@
+    __________________________
+    |sql          nosql      |
+    ''''''''''''''''''''''''''
+    |database    database    |
+    |tables      collections |
+    |rows        documents   |
+    |columns     fields      |
+    ''''''''''''''''''''''''''
+
+pertama tama hidupkan mongodbnya
+> mongod
+
+untuk mulai menggunakan query menggunakan
+>mongo
+
+menggunakan db (sekalian buat dbnya)
+>use namadb
+
+melihat db apa aja yang ada
+>showdbs
+
+drop db
+>db.dropDatabase()
+
+buat collection
+>db.createCollection("nama")
+
+delete collection
+>db.namacollection.drop()
+
+insert //deprecated
+>db.namacollection.insert({ya:"ini",dia:1})
+
+insert one
+>db.namacollection.insertOne({kekdiatas})
+
+insertMany
+>db.namacollection.insertMany([
+    {isi},
+    {isi}
+])
+
+lihat semua data dari collection
+>db.namacollection.find()
+
+nyari suatu data
+>db.namacollection.find({keydicari:"valuedicari"},{kolom dicari:1}) //0 kalau ndak mau kolom tu ada
+.limit(berapa) kalau mau
+
+nyari data kurang dari (less than) 
+gt untuk greater than
+lte untuk less than equal to
+gte untuk greater than equal to
+>db.namacollection.find({keydicari: {$lt:berapa
+
+    }
+})
+
+menggunakan AND
+
+> db.namacollection.find({$and:[{kondisi1},{kondisi2}]})
+
+menggunakan OR
+
+> db.namacollection.find({$or:[{kondisi1},{kondisi2}]})
+
+
+updateOne //bisa juga disini yang diupdate menambah kolom baru
+>db.namacollection.updateOne({temukanyangmaudiupdaterowmana:"inidia"},{$set:{yangmaudiubah:"inidia"}})
+
+updateMany sama cuma dia ngubah semua yang cocok dengan yangdicari
+
+remove //delete satu
+>db.namacollection.remove({fieldnya:"yangmanaisinya"})
+
+deleteMany //delete semua yang sama 
+>db.namacollection.deleteMany({fieldmana:"yangisinya"})

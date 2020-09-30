@@ -1,33 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>movie app</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/style.css">
-        
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>movie app</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
 <body>
-    <h1 id="sh"> hasil : halo </h1>
+    <h1 id="sh"> hasil : <%= query.toUpperCase() %> </h1>
+    <% data['results'].forEach((movie)=>{ %>
     <div class="card mb-3 w-75">
         <div class="row no-gutters">
             <div class="col-md-4">
-                <img src="" alt="" class="card-img img-fluid">
+                <img src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/<%= movie['poster_path']  %>" alt="" class="card-img img-fluid">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h2 class="card-title">value</h2>
+                    <h2 class="card-title"> <%= movie["original_title"]  %>  </h2>
                     <hr>
-                    <p class="card-text">summary</p>
+                    <p class="card-text"><%= movie["overview"]  %> </p>
                     <hr>
                     <br>
-                    <p class="card-text"> published: 2019</p>
-                    <p class="card-text"> votes: 30</p>
-                    <p class="card-text"> average rating: 6.5</p>
+                    <p class="card-text"> published: <%= movie["release_date"]  %> </p>
+                    <p class="card-text"> votes: <%= movie["vote_count"]  %> </p>
+                    <p class="card-text"> average rating: <%= movie["vote_average"]  %> </p>
                 </div>
             </div>
         </div>
     </div>
+    <% })%>
+
 </body>
+
 </html>
